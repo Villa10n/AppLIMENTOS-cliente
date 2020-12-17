@@ -25,6 +25,6 @@ app.use('/api/food', require('./routes/food'));
 
 
 // Escuchar peticiones
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 4000, '0.0.0.0', () => {
     console.log(`Servidor corriendo en: ${process.env.PORT}`);
 });
