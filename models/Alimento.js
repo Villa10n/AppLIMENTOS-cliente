@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const AlimentoSchema = Schema({
-    name: {
+    nombre: {
         type: String,
         required: true
     },
@@ -9,7 +9,7 @@ const AlimentoSchema = Schema({
         type: Number,
         required: true,
     },
-    calorias: {
+    caloriasPorcion: {
         type: Number,
         required: true
     }

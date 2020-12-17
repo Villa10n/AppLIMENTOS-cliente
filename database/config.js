@@ -5,12 +5,12 @@ const dbConnection = async () => {
         await mongoose.connect(process.env.DB_CNN, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useCreateIndex: true
+            useCreateIndex: true,
         });
         console.log('DB Online');
     } catch (error) {
         console.log(error);
-        throw new Error('Error al conectar BD');
+        throw new Error('Error al conectar a la BD');
     }
 };
 

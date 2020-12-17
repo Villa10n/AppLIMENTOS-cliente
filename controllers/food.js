@@ -10,7 +10,6 @@ const getAlimentos = async (req, res = response) => {
 };
 
 const crearAlimento = async (req, res = response) => {
-    // Creamos el alimento con los datos del formulario
     const alimento = new Alimento(req.body);
     try {
         const alimentoGuardado = await alimento.save();
@@ -27,19 +26,16 @@ const crearAlimento = async (req, res = response) => {
     }
 };
 
-const eliminarElemento = async (req, res = response) => {
-    const alimentoID = req.params.id;
+const eliminarAlimento = async (req, res = response) => {
+    const alimentoID = req.params.id || undefined;
     try {
-        // Buscamos el alimento por ID
         const alimento = await Alimento.findById(alimentoID);
-        // Comprobamos si existe
         if (!alimento) {
             return res.status(4040).json({
                 ok: false,
                 msg: 'El alimento ID no existe'
             });
         }
-        // Eliminamos el alimento por su ID
         await Alimento.findByIdAndDelete(alimentoID);
         return res.json({
             ok: true
@@ -53,8 +49,13 @@ const eliminarElemento = async (req, res = response) => {
     }
 };
 
+const actualizarAlimento = async (req, res = response) => {
+    
+};
+
 module.exports = {
     getAlimentos,
     crearAlimento,
-    eliminarElemento
+    eliminarAlimento,
+    actualizarAlimento
 };
