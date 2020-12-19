@@ -26,7 +26,8 @@ app.use('/api/food', require('./routes/food'));
 
 //PUERTO DE LA APP
 const port = process.env.PORT || 4000;
+
 // Escuchar peticiones
-app.listen(port || 4000, '0.0.0.0', () => {
+app.listen(port || 4000, () => {
     console.log(`Servidor corriendo en: ${process.env.PORT}`);
 });
